@@ -1,0 +1,35 @@
+
+	<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "test";
+
+
+	$ExamID = 0; //$_GET["ExamID"];  dapat $_GET to ehh wla k nmn ID para s EXAM!?
+	$Year=$_POST['Year'];
+	$Semester=$_POST['Semester'];
+	$Subject=$_POST['Subject'];
+	$Status=$_POST['Status'];
+	$Comment=$_POST['Comment'];
+	
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+//para lang mkuha yng QuestionNumber
+$cnt = mysqli_num_rows(mysqli_query($conn,'select * from tb_question'));
+
+$sql ="INSERT into tb_question  (ExamID, QuestionNumber, Question,WrongAnswer1,WrongAnswer2,WrongAnswer3,CorrectAnswer)
+	values('$ExamID','$cnt','$Question','$WrongAnswer1','$WrongAnswer2','$WrongAnswer3','$CorrectAnswer')";
+
+if (mysqli_query($conn, $sql)) {
+   header('Location:forms.php');
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+mysqli_close($conn);
+?>

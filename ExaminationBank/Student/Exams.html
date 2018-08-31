@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<title>asdasd</title>
+
+<script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
+
+</head>
+	<div class='full-width dark'>
+		<div class='container'>
+			<h1>jQuery Timer</h1>
+			<ul class='list-unstyled'>
+				<li>Lightweight, well tested jQuery pretty timer plugin</li>
+				<li>Start, Pause, Resume and Remove a timer inside any HTML element.</li>
+				<li>Get notified at a set time or at regular intervals.</li>
+				<li>Click and edit time while timer is running!</li>
+			</ul>
+			<br>
+			<h4>Try it out</h4>
+			<div class='row'>
+				<div class='col-md-3'>
+					<input type='text' name='timer' class='form-control timer' placeholder='0 sec' />
+				</div>
+				<div class='col-md-9'>
+					<button class='btn btn-success start-timer-btn'>Start</button>
+					<button class='btn btn-success resume-timer-btn hidden'>Resume</button>
+					<button class='btn pause-timer-btn hidden'>Pause</button>
+					<button class='btn btn-danger remove-timer-btn hidden'>Remove Timer</button>
+				</div>
+			</div>
+			<br>
+			<p>
+				<strong><a href='https://raw.githubusercontent.com/walmik/timer.jquery/master/dist/timer.jquery.min.js'>Download plugin</a></strong> |
+				<strong><a href='https://github.com/walmik/timer.jquery' class='highlight'>&#9733; Star this project on Github</a></strong>
+			</p>
+		</div>
+	</div>
+	<div class='full-width'>
+		<div class='container'>
+			<h4>How to</h4>
+			<div class='row'>
+				<div class='col-md-3 action'>Install:</div>
+				<div class='col-md-9'>
+<pre><a href='https://raw.githubusercontent.com/walmik/timer.jquery/master/src/timer.jquery.js'>Download</a> the jQuery timer plugin and put it in a SCRIPT tag in your HTML page after jQuery itself. </pre>
+				</div>
+				<div class='col-md-3 action'>Start a timer:</div>
+				<div class='col-md-9'>
+<pre>$('#divId').timer(); <em>//Same as $('#divId').timer('start')</em></pre>
+				</div>
+				<div class='col-md-3 action'>Start at a particular time:</div>
+				<div class='col-md-9'>
+<pre>$('#divId').timer({
+    seconds: 100 <em>//Specify start time in seconds</em>
+});</pre>
+				</div>
+				<div class='col-md-3 action'>Pause:</div>
+				<div class='col-md-9'>
+<pre>$('#divId').timer('pause');</pre>
+				</div>
+				<div class='col-md-3 action'>Resume:</div>
+				<div class='col-md-9'>
+<pre>$('#divId').timer('resume');</pre>
+				</div>
+				<div class='col-md-3 action'>Remove Timer:</div>
+				<div class='col-md-9'>
+<pre>$('#divId').timer('remove');</pre>
+				</div>
+				<div class='col-md-3 action'>Get number of seconds:</div>
+				<div class='col-md-9'>
+<pre>$('#divId').data('seconds');</pre>
+				</div>
+				<div class='col-md-3 action'>Get notified:</div>
+				<div class='col-md-9'>
+<pre>
+<em>//start a timer & execute a function in 5 minutes & 30 seconds</em>
+$('#divId').timer({
+    <strong>duration:</strong> '5m30s',
+    <strong>callback:</strong> function() {
+        alert('Time up!');
+    }
+});
+</pre>
+				</div>
+				<div class='col-md-3 action'>Get notified repeatedly:</div>
+				<div class='col-md-9'>
+<pre>
+<em>//start a timer & execute a function <strong>every</strong> 2 minutes</em>
+$('#divId').timer({
+    <strong>duration:</strong> '2m',
+    <strong>callback:</strong> function() {
+        alert('Why, Hello there');
+    },
+    <strong>repeat:</strong> true <em>//repeatedly calls the callback you specify</em>
+});
+</pre>
+				</div>
+				<div class='col-md-3 action'>Repeat callback & reset timer:</div>
+				<div class='col-md-9'>
+<pre>
+<em>//start a timer & execute a function every 30 seconds and then reset the timer at the end of 30 seconds.</em>
+$('#divId').timer({
+    <strong>duration:</strong> '30s',
+    <strong>callback:</strong> function() {
+        console.log('Timer will reset!');
+        $('#divId').timer('reset');
+    },
+    <strong>repeat:</strong> true <em>//repeatedly call the callback</em>
+});
+</pre>
+				</div>
+				<div class='col-md-3 action'>
+                    Format:
+                    By default the timer will display a pretty output (30 sec OR 1:06). You can change this format if you like.
+                </div>
+				<div class='col-md-9'>
+<pre><em>// Show a digital timer instead of pretty timer:</em>
+$('#divId').timer({
+    <strong>format:</strong> '%H:%M:%S'  <em>Display time as 00:00:00</em>
+});
+
+<em>// OR</em>
+$('#divId').timer({
+    <strong>format:</strong> '%h:%m:%s'  <em>Display time as 0:0:0</em>
+});
+
+<em>// OR</em>
+$('#divId').timer({
+    <strong>format:</strong> '%M minutes %s seconds'  <em>Display time as 3 minutes 45 seconds</em>
+});</pre>
+                </div>
+
+				<div class='col-md-3 action'>Update frequency: By default the timer display updates every 500ms to show an accurate update of time. You can change this by specifying the update frequency in milliseconds.</div>
+				<div class='col-md-	9'>
+<pre>$('#divId').timer({
+	updateFrequency: 2000 	// Update the timer display every 2 seconds.
+});</pre>
+				</div>
+			</div><!-- /row -->
+
+			<br>
+
+			<p>
+				<strong><a href='https://raw.githubusercontent.com/walmik/timer.jquery/master/src/timer.jquery.js'>Download jQuery timer plugin</a></strong>
+			</p>
+
+
+		</div>
+	</div>
+
+	<div class='github-fork-ribbon-wrapper right fixed'>
+		<div class='github-fork-ribbon'>
+			<a href='https://github.com/walmik/timer.jquery'>Fork me on GitHub</a>
+		</div>
+	</div>
+
+	<script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
+	<script src='https://raw.githubusercontent.com/walmik/timer.jquery/master/dist/timer.jquery.min.js'></script>
+	<script>
+	    (function(){
+			var hasTimer = false;
+			// Init timer start
+			$('.start-timer-btn').on('click', function() {
+				hasTimer = true;
+				$('.timer').timer({
+					editable: true
+				});
+				$(this).addClass('hidden');
+				$('.pause-timer-btn, .remove-timer-btn').removeClass('hidden');
+			});
+
+			// Init timer resume
+			$('.resume-timer-btn').on('click', function() {
+				$('.timer').timer('resume');
+				$(this).addClass('hidden');
+				$('.pause-timer-btn, .remove-timer-btn').removeClass('hidden');
+			});
+
+
+			// Init timer pause
+			$('.pause-timer-btn').on('click', function() {
+				$('.timer').timer('pause');
+				$(this).addClass('hidden');
+				$('.resume-timer-btn').removeClass('hidden');
+			});
+
+			// Remove timer
+			$('.remove-timer-btn').on('click', function() {
+				hasTimer = false;
+				$('.timer').timer('remove');
+				$(this).addClass('hidden');
+				$('.start-timer-btn').removeClass('hidden');
+				$('.pause-timer-btn, .resume-timer-btn').addClass('hidden');
+			});
+
+			// Additional focus event for this demo
+			$('.timer').on('focus', function() {
+				if(hasTimer) {
+					$('.pause-timer-btn').addClass('hidden');
+					$('.resume-timer-btn').removeClass('hidden');
+				}
+			});
+
+			// Additional blur event for this demo
+			$('.timer').on('blur', function() {
+				if(hasTimer) {
+					$('.pause-timer-btn').removeClass('hidden');
+					$('.resume-timer-btn').addClass('hidden');
+				}
+			});
+		})();
+	</script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-8347688-18', 'auto');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>
